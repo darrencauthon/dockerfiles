@@ -28,6 +28,22 @@ RUN ./bazel-install.sh --user && \
 ENV BAZEL_BIN=/home/bazel/bin
 ENV PATH=$PATH:$BAZEL_BIN
 
+# Install Python.
+RUN \
+  apt-get update && \
+  apt-get install -y python python-dev python-pip python-virtualenv && \
+  rm -rf /var/lib/apt/lists/*
+
+RUN \
+  cd ~ && \
+  mkdir pip && \
+  cd pip && \
+  wget https://bootstrap.pypa.io/get-pip.py && \
+  python get-pip.py
+
+# Define working directory.
+WORKDIR /data
+
 CMD ["/bin/bash"]
 
 # Set the lang to US, utf8
