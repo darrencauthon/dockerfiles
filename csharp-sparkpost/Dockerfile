@@ -12,7 +12,7 @@ RUN git clone https://github.com/SparkPost/csharp-sparkpost.git
 
 WORKDIR /csharp-sparkpost/src
 
-ADD build.sh /csharp-sparkpost/src
+ADD build_and_deploy.sh /csharp-sparkpost/src
 
 #RUN nuget update -self
 #RUN nuget restore
@@ -20,4 +20,4 @@ ADD build.sh /csharp-sparkpost/src
 
 #RUN nuget pack SparkPost/SparkPost.nuspec -Prop Configuration=Release
 
-CMD /csharp-sparkpost/src/build.sh
+CMD /csharp-sparkpost/src/build_and_deploy.sh
