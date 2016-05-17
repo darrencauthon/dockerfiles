@@ -13,7 +13,7 @@ RUN git clone https://github.com/SparkPost/csharp-sparkpost.git
 WORKDIR /csharp-sparkpost/src
 
 ADD build_and_deploy.sh /csharp-sparkpost/src
-RUN chmod 777 /csharp-sparkpost/src/build_and_deploy.sh
+RUN chmod 777 build_and_deploy.sh
 
 #RUN nuget update -self
 #RUN nuget restore
